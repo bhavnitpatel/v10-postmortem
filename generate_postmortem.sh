@@ -33,7 +33,7 @@ fi
 # We want customers to use the latest postmortem wherever possible
 SCRIPT_NAME=${0##*/}
 THIS_SCRIPT_HASH=$(sha256sum "$SCRIPT_NAME" | cut -d ' ' -f1)
-LATEST_SCRIPT_HASH=$(curl -s https://raw.githubusercontent.com/ibm-apiconnect/v10-postmortem/master/generate_postmortem.sh | sha256sum | cut -d ' ' -f1) || true
+LATEST_SCRIPT_HASH=$(curl -s https://raw.githubusercontent.com/bhavnitpatel/v10-postmortem/patch-1/generate_postmortem.sh | sha256sum | cut -d ' ' -f1) || true
 # Only give the warning if we know this was a good returned hash
 if [[ -n $LATEST_SCRIPT_HASH && ${#LATEST_SCRIPT_HASH} -eq 64 && $LATEST_SCRIPT_HASH != $THIS_SCRIPT_HASH ]]; then
     echo "NOTE: There is a newer version of postmortem available. Please download the latest postmortem script from https://github.com/ibm-apiconnect/v10-postmortem so that up-to-date information is gathered."
